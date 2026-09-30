@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'sha256-qNk4IG1/JT+panHxkF/UE74hbpEDxTTOJjCS5p1kR6M='; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Islandly para Mac</title>
 <meta name="description" content="Islandly lleva una isla dinámica a tu Mac: música con carátula, animación de carga, isla dividida, bandeja de archivos con AirDrop y más. Gratis, privada y ligera.">
@@ -12,9 +14,6 @@
 <meta name="theme-color" content="#000000">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: Apple-style product page. Alternating full-bleed bands (black hero, light feature
    grid, black craft band, white privacy, light download), each with a centred 980px column.
@@ -592,7 +591,7 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
     <div class="column center">
       <img class="appicon" src="icon.png" alt="" width="128" height="128">
       <h2 class="section-title" data-i18n="download.title">Descarga Islandly.</h2>
-      <p class="download-meta" data-i18n="download.meta">Versión 1.9.0 · Gratis · 3,4 MB · macOS 14 Sonoma o posterior · Apple silicon e Intel</p>
+      <p class="download-meta" data-i18n="download.meta">Versión 1.9.1 · Gratis · 3,4 MB · macOS 14 Sonoma o posterior · Apple silicon e Intel</p>
       <div class="download-actions">
         <a class="pill" href="https://github.com/barahona87/islandly/releases/latest/download/Islandly.dmg">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 12.5V14h12v-1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -620,7 +619,7 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
     <div class="checksum">
       <div>
         <span class="label" data-i18n="sha.label">Huella SHA-256 del instalador</span>
-        <code id="sha">3c73ba37750142dcdd88d0bb00774ec9e9eb3524bb3963bd60a3008d6519de3a</code>
+        <code id="sha">8c81d9bc196cba0cca393b5560c6ef0451fa4e6f278f3e5715c0ddaec5835b07</code>
       </div>
       <button type="button" class="copy" id="copy-sha" data-i18n="sha.copy">Copiar</button>
     </div>
@@ -756,7 +755,7 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
     "p4.title": "Your files, untouched",
     "p4.text": "The Shelf keeps a reference to each file, never a copy, and never moves them.",
     "download.title": "Download Islandly.",
-    "download.meta": "Version 1.9.0 · Free · 3.4 MB · macOS 14 Sonoma or later · Apple silicon and Intel",
+    "download.meta": "Version 1.9.1 · Free · 3.4 MB · macOS 14 Sonoma or later · Apple silicon and Intel",
     "download.all": "All versions",
     "s1.title": "Install",
     "s1.text": "Open the downloaded file and drag Islandly to the Applications folder.",
