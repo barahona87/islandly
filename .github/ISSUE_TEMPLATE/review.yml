@@ -1,0 +1,49 @@
+name: "⭐ Dejar una reseña / Write a review"
+description: "Cuéntanos qué te parece Islandly. / Tell us what you think of Islandly."
+title: "[Reseña] "
+labels: ["review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por tu tiempo! Tu reseña es **pública** aquí en GitHub.
+        Thanks for your time! Your review is **public** here on GitHub.
+  - type: dropdown
+    id: rating
+    attributes:
+      label: "Calificación / Rating"
+      options:
+        - "⭐⭐⭐⭐⭐"
+        - "⭐⭐⭐⭐"
+        - "⭐⭐⭐"
+        - "⭐⭐"
+        - "⭐"
+    validations:
+      required: true
+  - type: textarea
+    id: review
+    attributes:
+      label: "Tu opinión / Your review"
+      placeholder: "Lo que más me gusta es… / What I like most is…"
+    validations:
+      required: true
+  - type: textarea
+    id: wish
+    attributes:
+      label: "¿Qué le agregarías? (opcional) / What would you add? (optional)"
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: "Versión de Islandly / Islandly version"
+      placeholder: "1.10.0 (13)"
+    validations:
+      required: false
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Página web / Website"
+      options:
+        - label: "Pueden mostrar mi reseña y mi nombre de usuario de GitHub en la página de Islandly. / You may show my review and my GitHub username on Islandly's website."
+          required: false

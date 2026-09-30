@@ -1,0 +1,62 @@
+name: "🐞 Reportar un error / Report a bug"
+description: "Algo no funciona como debería. / Something doesn't work as it should."
+title: "[Error] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por ayudar a mejorar Islandly! Todo lo que escribas aquí es **público**: no pongas contraseñas, correos ni datos personales.
+        Thanks for helping improve Islandly! Everything here is **public**: don't include passwords, emails or personal data.
+  - type: textarea
+    id: what
+    attributes:
+      label: "¿Qué pasó? / What happened?"
+      description: "Describe el problema. / Describe the problem."
+      placeholder: "Al conectar el cargador, la isla… / When I plug in the charger, the island…"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: "¿Cómo repetirlo? / How to reproduce it?"
+      placeholder: |
+        1. Abrir Islandly / Open Islandly
+        2. …
+    validations:
+      required: false
+  - type: textarea
+    id: expected
+    attributes:
+      label: "¿Qué esperabas? / What did you expect?"
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: "Versión de Islandly / Islandly version"
+      description: "Menú de Islandly → Acerca de. / Islandly menu → About."
+      placeholder: "1.10.0 (13)"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: "Versión de macOS / macOS version"
+      placeholder: "26.0"
+    validations:
+      required: false
+  - type: input
+    id: model
+    attributes:
+      label: "Modelo de Mac / Mac model"
+      placeholder: "MacBook Air M3 / Mac15,12"
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Capturas o video (opcional) / Screenshots or video (optional)"
+      description: "Arrastra aquí imágenes o videos. / Drag images or videos here."
+    validations:
+      required: false
