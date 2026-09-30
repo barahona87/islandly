@@ -92,7 +92,11 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
 .nav-links a { color: #e8e8ed; opacity: 0.85; letter-spacing: -0.01em; }
 .nav-links a:hover { opacity: 1; text-decoration: none; }
 .nav .pill-small { font-size: 12px; padding: 4px 12px; }
-@media (max-width: 640px) { .nav-links { display: none; } .nav .pill-small { margin-left: auto; } }
+.lang { display: inline-flex; padding: 2px; border-radius: 980px; background: rgba(255, 255, 255, 0.12); }
+.lang button { font: 600 11px/1 var(--font-text); letter-spacing: 0.04em; color: #e8e8ed; background: transparent; border: 0; border-radius: 980px; padding: 5px 9px; cursor: pointer; opacity: 0.75; }
+.lang button[aria-pressed="true"] { background: #e8e8ed; color: var(--ink); opacity: 1; }
+.lang button:hover { opacity: 1; }
+@media (max-width: 640px) { .nav-links { display: none; } .lang { margin-left: auto; } }
 
 /* ---------- Buttons ---------- */
 .pill {
@@ -346,11 +350,15 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
   <div class="column">
     <a class="brand" href="#top"><img src="favicon.png" alt="" width="22" height="22">Islandly</a>
     <div class="nav-links">
-      <a href="#funciones">Funciones</a>
-      <a href="#detalles">Detalles</a>
-      <a href="#privacidad">Privacidad</a>
+      <a href="#funciones" data-i18n="nav.features" data-i18n="features.eyebrow">Funciones</a>
+      <a href="#detalles" data-i18n="nav.details" data-i18n="details.eyebrow">Detalles</a>
+      <a href="#privacidad" data-i18n="nav.privacy">Privacidad</a>
     </div>
-    <a class="pill pill-small" href="#descargar">Descargar</a>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
+    <a class="pill pill-small" href="#descargar" data-i18n="nav.download">Descargar</a>
   </div>
 </nav>
 
@@ -361,19 +369,19 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
     <div class="column center">
       <img class="appicon" src="icon.png" alt="Icono de Islandly" width="96" height="96">
       <p class="eyebrow">Islandly</p>
-      <h1 class="headline">La isla dinámica,<br>ahora en tu Mac.</h1>
-      <p class="lead">Música, carga, temporizadores, archivos y avisos viven en una isla arriba de tu pantalla. Se abre cuando la necesitas y desaparece cuando no.</p>
+      <h1 class="headline" data-i18n="hero.title">La isla dinámica,<br>ahora en tu Mac.</h1>
+      <p class="lead" data-i18n="hero.lead">Música, carga, temporizadores, archivos y avisos viven en una isla arriba de tu pantalla. Se abre cuando la necesitas y desaparece cuando no.</p>
       <div class="hero-actions">
-        <a class="pill" href="#descargar">Descargar gratis</a>
-        <a class="link-more" href="#funciones">Ver lo que hace</a>
+        <a class="pill" href="#descargar" data-i18n="hero.cta">Descargar gratis</a>
+        <a class="link-more" href="#funciones" data-i18n="hero.more">Ver lo que hace</a>
       </div>
-      <p class="hero-note">Para macOS 14 Sonoma o posterior · Macs con o sin notch</p>
+      <p class="hero-note" data-i18n="hero.note">Para macOS 14 Sonoma o posterior · Macs con o sin notch</p>
     </div>
 
     <div class="stage" id="stage" data-state="music" role="img" aria-label="Pantalla de un Mac con la isla de Islandly mostrando una canción, el reproductor abierto, la animación de carga y la isla dividida">
       <div class="menubar" aria-hidden="true">
-        <div class="items"><b>Finder</b><span>Archivo</span><span>Edición</span><span>Visualización</span></div>
-        <div class="status"><span>87 %</span><span class="batt"></span><span>Mar 29 sep 10:41</span></div>
+        <div class="items"><b>Finder</b><span data-i18n="menu.file">Archivo</span><span data-i18n="menu.edit">Edición</span><span data-i18n="menu.view">Visualización</span></div>
+        <div class="status"><span data-i18n="menu.pct">87 %</span><span class="batt"></span><span data-i18n="menu.date">Mar 29 sep 10:41</span></div>
       </div>
 
       <div class="island" aria-hidden="true">
@@ -400,7 +408,7 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
         <div class="layer l-charging">
           <div class="charging">
             <span class="bolt">⚡</span>
-            <div><div class="title">Cargando</div><div class="dim" style="font-size:.9em">carga completa en 38 min</div></div>
+            <div><div class="title" data-i18n="demo.charging">Cargando</div><div class="dim" style="font-size:.9em" data-i18n="demo.full">carga completa en 38 min</div></div>
             <span class="pct">87%</span>
             <span class="battery"><span></span></span>
           </div>
@@ -417,21 +425,21 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
         <button type="button" data-go="charging" aria-pressed="false" aria-label="Carga"></button>
         <button type="button" data-go="split" aria-pressed="false" aria-label="Isla dividida"></button>
       </div>
-      <p class="hero-caption" id="caption">La canción, con su carátula y barras que siguen la música.</p>
+      <p class="hero-caption" id="caption" data-i18n="hero.caption">La canción, con su carátula y barras que siguen la música.</p>
     </div>
   </section>
 
   <!-- Features -->
   <section class="features band" id="funciones">
     <div class="column center">
-      <p class="eyebrow">Funciones</p>
-      <h2 class="section-title">Todo lo que pasa en tu Mac, a un vistazo.</h2>
+      <p class="eyebrow" data-i18n="nav.features" data-i18n="features.eyebrow">Funciones</p>
+      <h2 class="section-title" data-i18n="features.title">Todo lo que pasa en tu Mac, a un vistazo.</h2>
     </div>
 
     <div class="column grid">
       <article class="card span-3 dark">
-        <h3>Tu música, siempre a la vista.</h3>
-        <p>Música y Spotify con <strong>carátula, título y barras que bailan con la canción</strong>. Pasa, pausa o cambia de canción desde la isla, o deslizando dos dedos.</p>
+        <h3 data-i18n="f.music.title">Tu música, siempre a la vista.</h3>
+        <p data-i18n="f.music.text">Música y Spotify con <strong>carátula, título y barras que bailan con la canción</strong>. Pasa, pausa o cambia de canción desde la isla, o deslizando dos dedos.</p>
         <div class="mini" aria-hidden="true">
           <div class="island w-music"><div class="layer"><div class="row">
             <span class="art" style="width:1.35em;height:1.35em"></span><span class="title">Luz de mediodía</span>
@@ -441,20 +449,20 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
       </article>
 
       <article class="card span-3 dark">
-        <h3>Carga que se nota.</h3>
-        <p>Al conectar el cargador, un rayo verde y <strong>una batería que se llena hasta tu porcentaje</strong>, con el tiempo que falta.</p>
+        <h3 data-i18n="f.charge.title">Carga que se nota.</h3>
+        <p data-i18n="f.charge.text">Al conectar el cargador, un rayo verde y <strong>una batería que se llena hasta tu porcentaje</strong>, con el tiempo que falta.</p>
         <div class="mini" aria-hidden="true">
           <div class="island w-charge"><div class="layer"><div class="charging">
             <span class="bolt">⚡</span>
-            <div><div class="title">Cargando</div><div class="dim" style="font-size:.9em">carga completa en 38 min</div></div>
+            <div><div class="title" data-i18n="demo.charging">Cargando</div><div class="dim" style="font-size:.9em" data-i18n="demo.full">carga completa en 38 min</div></div>
             <span class="pct">87%</span><span class="battery"><span></span></span>
           </div></div></div>
         </div>
       </article>
 
       <article class="card span-2">
-        <h3>Isla dividida.</h3>
-        <p>¿Dos cosas a la vez? La segunda aparece en <strong>su propia burbuja</strong>, como en el iPhone.</p>
+        <h3 data-i18n="f.split.title">Isla dividida.</h3>
+        <p data-i18n="f.split.text">¿Dos cosas a la vez? La segunda aparece en <strong>su propia burbuja</strong>, como en el iPhone.</p>
         <div class="mini" aria-hidden="true">
           <div class="island" style="width:19.5em;left:42%"><div class="layer"><div class="row timer-row"><span style="color:var(--orange)">⏱</span><span class="num">04:59</span></div></div></div>
           <div class="bubble" style="left:calc(42% + 9.75em + .5em)"><span class="art" style="width:1.25em;height:1.25em;border-radius:50%"></span></div>
@@ -462,19 +470,19 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
       </article>
 
       <article class="card span-2">
-        <h3>Bandeja con AirDrop.</h3>
-        <p>Suelta archivos en la isla para tenerlos a mano. <strong>Sácalos arrastrando</strong> o envíalos por AirDrop.</p>
+        <h3 data-i18n="f.shelf.title">Bandeja con AirDrop.</h3>
+        <p data-i18n="f.shelf.text">Suelta archivos en la isla para tenerlos a mano. <strong>Sácalos arrastrando</strong> o envíalos por AirDrop.</p>
         <div class="mini" aria-hidden="true">
           <div class="island w-shelf"><div class="layer">
             <span class="airdrop">AirDrop</span>
-            <div class="files"><span class="file"><i></i>Fotos</span><span class="file"><i></i>Diseño</span><span class="file"><i></i>Notas</span></div>
+            <div class="files"><span class="file"><i></i><span data-i18n="f.shelf.photos">Fotos</span></span><span class="file"><i></i><span data-i18n="f.shelf.design">Diseño</span></span><span class="file"><i></i><span data-i18n="f.shelf.notes">Notas</span></span></div>
           </div></div>
         </div>
       </article>
 
       <article class="card span-2">
-        <h3>Volumen en la isla.</h3>
-        <p>Sube o baja el volumen y la isla te muestra <strong>el nivel exacto</strong>, al instante.</p>
+        <h3 data-i18n="f.volume.title">Volumen en la isla.</h3>
+        <p data-i18n="f.volume.text">Sube o baja el volumen y la isla te muestra <strong>el nivel exacto</strong>, al instante.</p>
         <div class="mini" aria-hidden="true">
           <div class="island w-hud"><div class="layer"><div class="hud">
             <span>🔊</span><span class="track"><span></span></span><span class="dim" style="font-variant-numeric:tabular-nums">64</span>
@@ -483,8 +491,8 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
       </article>
 
       <article class="card span-3">
-        <h3>Cualquier color de tu pantalla.</h3>
-        <p>La lupa de macOS elige el color y Islandly lo copia en <strong>HEX, RGB o HSL</strong>. Guarda tus últimos colores.</p>
+        <h3 data-i18n="f.color.title">Cualquier color de tu pantalla.</h3>
+        <p data-i18n="f.color.text">La lupa de macOS elige el color y Islandly lo copia en <strong>HEX, RGB o HSL</strong>. Guarda tus últimos colores.</p>
         <div class="mini" aria-hidden="true">
           <div class="island w-color"><div class="layer"><div class="colorpick">
             <span class="big"></span>
@@ -494,70 +502,70 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
       </article>
 
       <article class="card span-3">
-        <h3>Sabes cuándo te ven y te oyen.</h3>
-        <p>Una <strong class="cam">cámara verde</strong> y un <strong class="mic">micrófono naranja</strong> aparecen cuando cualquier app los usa. Y una luna cuando activas <strong>Concentración</strong>.</p>
+        <h3 data-i18n="f.privacy.title">Sabes cuándo te ven y te oyen.</h3>
+        <p data-i18n="f.privacy.text">Una <strong class="cam">cámara verde</strong> y un <strong class="mic">micrófono naranja</strong> aparecen cuando cualquier app los usa. Y una luna cuando activas <strong>Concentración</strong>.</p>
         <div class="mini" aria-hidden="true">
           <div class="island w-focus"><div class="layer"><div class="hud">
-            <span style="color:var(--indigo);font-size:1.4em">☾</span><span class="title">Concentración activada</span>
+            <span style="color:var(--indigo);font-size:1.4em">☾</span><span class="title" data-i18n="f.privacy.focus">Concentración activada</span>
           </div></div></div>
           <div class="island" style="width:19.5em;top:6em"><div class="layer"><div class="row">
-            <span class="cam">●</span><span class="mic">●</span><span class="dim" style="margin-left:auto">En uso</span>
+            <span class="cam">●</span><span class="mic">●</span><span class="dim" style="margin-left:auto" data-i18n="f.privacy.inuse">En uso</span>
           </div></div></div>
         </div>
       </article>
     </div>
 
     <div class="column also" aria-label="Además">
-      <span>Temporizador y cronómetro</span><span>Próximo evento del calendario</span><span>Descargas con progreso</span>
-      <span>Monitor de CPU, GPU, memoria y disco</span><span>Audífonos y AirPods</span><span>Historial del portapapeles</span>
-      <span>Avisos en el Centro de notificaciones</span><span>Modo silencioso</span><span>Modo Demo</span>
+      <span data-i18n="also.timer">Temporizador y cronómetro</span><span data-i18n="also.calendar">Próximo evento del calendario</span><span data-i18n="also.downloads">Descargas con progreso</span>
+      <span data-i18n="also.monitor">Monitor de CPU, GPU, memoria y disco</span><span data-i18n="also.audio">Audífonos y AirPods</span><span data-i18n="also.clipboard">Historial del portapapeles</span>
+      <span data-i18n="also.notifications">Avisos en el Centro de notificaciones</span><span data-i18n="also.quiet">Modo silencioso</span><span data-i18n="also.demo">Modo Demo</span>
     </div>
   </section>
 
   <!-- Craft -->
   <section class="craft band on-dark" id="detalles">
     <div class="column center">
-      <p class="eyebrow" style="color:var(--mint)">Detalles</p>
-      <h2 class="section-title">Se siente como si viniera con tu Mac.</h2>
-      <p class="lead">Animaciones suaves, atajos de teclado, gestos del trackpad y accesibilidad completa. Y casi no gasta nada.</p>
+      <p class="eyebrow" style="color:var(--mint)" data-i18n="nav.details" data-i18n="details.eyebrow">Detalles</p>
+      <h2 class="section-title" data-i18n="details.title">Se siente como si viniera con tu Mac.</h2>
+      <p class="lead" data-i18n="details.lead">Animaciones suaves, atajos de teclado, gestos del trackpad y accesibilidad completa. Y casi no gasta nada.</p>
     </div>
     <div class="column craft-grid">
       <div>
-        <div class="keys" aria-hidden="true"><kbd>⌥</kbd><kbd>Espacio</kbd></div>
-        <h3>Atajos de teclado</h3>
-        <p>Abre la isla desde cualquier app. Con ⌘1…⌘9 saltas de pestaña; Esc la cierra.</p>
+        <div class="keys" aria-hidden="true"><kbd>⌥</kbd><kbd data-i18n="d.space">Espacio</kbd></div>
+        <h3 data-i18n="d.keys.title">Atajos de teclado</h3>
+        <p data-i18n="d.keys.text">Abre la isla desde cualquier app. Con ⌘1…⌘9 saltas de pestaña; Esc la cierra.</p>
       </div>
       <div>
         <div class="keys" aria-hidden="true"><kbd>☝︎☝︎</kbd><kbd>↓</kbd></div>
-        <h3>Gestos del trackpad</h3>
-        <p>Dos dedos hacia abajo la abren, hacia arriba la cierran; a los lados cambias de canción.</p>
+        <h3 data-i18n="d.gestures.title">Gestos del trackpad</h3>
+        <p data-i18n="d.gestures.text">Dos dedos hacia abajo la abren, hacia arriba la cierran; a los lados cambias de canción.</p>
       </div>
       <div>
         <div class="keys" aria-hidden="true"><kbd>Aa</kbd></div>
-        <h3>Para todos</h3>
-        <p>Tres tamaños de texto, VoiceOver, alto contraste y Reducir movimiento.</p>
+        <h3 data-i18n="d.everyone.title">Para todos</h3>
+        <p data-i18n="d.everyone.text">Tres tamaños de texto, VoiceOver, alto contraste y Reducir movimiento.</p>
       </div>
       <div>
         <div class="keys" aria-hidden="true"><kbd>◐</kbd></div>
-        <h3>Con o sin notch</h3>
-        <p>En Macs con notch la isla lo rodea; en los demás dibuja su propia isla, negra o de cristal.</p>
+        <h3 data-i18n="d.notch.title">Con o sin notch</h3>
+        <p data-i18n="d.notch.text">En Macs con notch la isla lo rodea; en los demás dibuja su propia isla, negra o de cristal.</p>
       </div>
       <div>
         <div class="keys" aria-hidden="true"><kbd>⇆</kbd></div>
-        <h3>Varios monitores</h3>
-        <p>Elige en qué pantalla vive la isla; se recoloca sola al cambiar de monitor.</p>
+        <h3 data-i18n="d.displays.title">Varios monitores</h3>
+        <p data-i18n="d.displays.text">Elige en qué pantalla vive la isla; se recoloca sola al cambiar de monitor.</p>
       </div>
       <div>
         <div class="keys" aria-hidden="true"><kbd>ES</kbd><kbd>EN</kbd></div>
-        <h3>En tu idioma</h3>
-        <p>En español y en inglés, según el idioma de tu Mac.</p>
+        <h3 data-i18n="d.language.title">En tu idioma</h3>
+        <p data-i18n="d.language.text">En español y en inglés. Sigue el idioma de tu Mac o elige uno en Ajustes.</p>
       </div>
     </div>
     <div class="column stats">
-      <div class="stat"><strong>0,03 %</strong><span>de CPU en reposo, con todo encendido</span></div>
-      <div class="stat"><strong>3,4 MB</strong><span>de descarga</span></div>
-      <div class="stat"><strong>14</strong><span>módulos que activas a tu gusto</span></div>
-      <div class="stat"><strong>0</strong><span>cuentas, anuncios o rastreo</span></div>
+      <div class="stat"><strong data-i18n="stat.cpu.value">0,03 %</strong><span data-i18n="stat.cpu">de CPU en reposo, con todo encendido</span></div>
+      <div class="stat"><strong data-i18n="stat.size.value">3,4 MB</strong><span data-i18n="stat.size">de descarga</span></div>
+      <div class="stat"><strong>14</strong><span data-i18n="stat.modules">módulos que activas a tu gusto</span></div>
+      <div class="stat"><strong>0</strong><span data-i18n="stat.zero">cuentas, anuncios o rastreo</span></div>
     </div>
   </section>
 
@@ -568,14 +576,14 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
         <path d="M36 6 60 15v19c0 16-10 27-24 32C22 61 12 50 12 34V15z" fill="#1d1d1f"/>
         <path d="M26 37l7 7 14-15" fill="none" stroke="#5bdebd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <h2 class="section-title">Tu Mac no le cuenta nada a nadie.</h2>
-      <p class="lead">Islandly funciona dentro de la protección de seguridad de macOS y solo usa herramientas públicas de Apple. Lo que ve, lo muestra y lo olvida.</p>
+      <h2 class="section-title" data-i18n="privacy.title">Tu Mac no le cuenta nada a nadie.</h2>
+      <p class="lead" data-i18n="privacy.lead">Islandly funciona dentro de la protección de seguridad de macOS y solo usa herramientas públicas de Apple. Lo que ve, lo muestra y lo olvida.</p>
     </div>
     <div class="column privacy-grid">
-      <div><h3>Sin cuentas ni rastreo</h3><p>No hay registro, analíticas ni anuncios. Islandly no tiene servidores propios.</p></div>
-      <div><h3>Permisos solo cuando tú los pides</h3><p>Calendario, música o Concentración se piden al pulsar “Permitir”, nunca al abrir la app.</p></div>
-      <div><h3>Nada se graba</h3><p>Para mover las barras, Islandly mide el sonido de la música y lo descarta al instante. Nunca enciende la cámara ni el micrófono.</p></div>
-      <div><h3>Tus archivos, intactos</h3><p>La bandeja guarda una referencia a cada archivo, nunca una copia, y no los cambia de lugar.</p></div>
+      <div><h3 data-i18n="p1.title">Sin cuentas ni rastreo</h3><p data-i18n="p1.text">No hay registro, analíticas ni anuncios. Islandly no tiene servidores propios.</p></div>
+      <div><h3 data-i18n="p2.title">Permisos solo cuando tú los pides</h3><p data-i18n="p2.text">Calendario, música o Concentración se piden al pulsar “Permitir”, nunca al abrir la app.</p></div>
+      <div><h3 data-i18n="p3.title">Nada se graba</h3><p data-i18n="p3.text">Para mover las barras, Islandly mide el sonido de la música y lo descarta al instante. Nunca enciende la cámara ni el micrófono.</p></div>
+      <div><h3 data-i18n="p4.title">Tus archivos, intactos</h3><p data-i18n="p4.text">La bandeja guarda una referencia a cada archivo, nunca una copia, y no los cambia de lugar.</p></div>
     </div>
   </section>
 
@@ -583,48 +591,48 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
   <section class="download band" id="descargar">
     <div class="column center">
       <img class="appicon" src="icon.png" alt="" width="128" height="128">
-      <h2 class="section-title">Descarga Islandly.</h2>
-      <p class="download-meta">Versión 1.8.0 · Gratis · 3,4 MB · macOS 14 Sonoma o posterior · Apple silicon e Intel</p>
+      <h2 class="section-title" data-i18n="download.title">Descarga Islandly.</h2>
+      <p class="download-meta" data-i18n="download.meta">Versión 1.9.0 · Gratis · 3,4 MB · macOS 14 Sonoma o posterior · Apple silicon e Intel</p>
       <div class="download-actions">
         <a class="pill" href="https://github.com/barahona87/islandly/releases/latest/download/Islandly.dmg">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 12.5V14h12v-1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Descargar para Mac
         </a>
-        <a class="link-more" href="https://github.com/barahona87/islandly/releases">Todas las versiones</a>
+        <a class="link-more" href="https://github.com/barahona87/islandly/releases" data-i18n="download.all">Todas las versiones</a>
       </div>
     </div>
 
     <ol class="column steps">
       <li>
-        <h3>Instala</h3>
-        <p>Abre el archivo descargado y arrastra Islandly a la carpeta Aplicaciones.</p>
+        <h3 data-i18n="s1.title">Instala</h3>
+        <p data-i18n="s1.text">Abre el archivo descargado y arrastra Islandly a la carpeta Aplicaciones.</p>
       </li>
       <li>
-        <h3>Permite abrirla</h3>
-        <p>La primera vez, macOS dice que no puede comprobar la app. Pulsa Hecho y ve a Configuración del Sistema → Privacidad y seguridad → <strong>Abrir igualmente</strong>. Solo se hace una vez.</p>
+        <h3 data-i18n="s2.title">Permite abrirla</h3>
+        <p data-i18n="s2.text">La primera vez, macOS dice que no puede comprobar la app. Pulsa Hecho y ve a Configuración del Sistema → Privacidad y seguridad → <strong>Abrir igualmente</strong>. Solo se hace una vez.</p>
       </li>
       <li>
-        <h3>Disfruta</h3>
-        <p>La isla aparece arriba, al centro. Pasa el cursor o pulsa ⌥ Espacio para abrirla.</p>
+        <h3 data-i18n="s3.title">Disfruta</h3>
+        <p data-i18n="s3.text">La isla aparece arriba, al centro. Pasa el cursor o pulsa ⌥ Espacio para abrirla.</p>
       </li>
     </ol>
 
     <div class="checksum">
       <div>
-        <span class="label">Huella SHA-256 del instalador</span>
-        <code id="sha">365f67571ae262b2fb0c644c2bd16772fd25c9128948fcbe8ababddb95998181</code>
+        <span class="label" data-i18n="sha.label">Huella SHA-256 del instalador</span>
+        <code id="sha">3c73ba37750142dcdd88d0bb00774ec9e9eb3524bb3963bd60a3008d6519de3a</code>
       </div>
-      <button type="button" class="copy" id="copy-sha">Copiar</button>
+      <button type="button" class="copy" id="copy-sha" data-i18n="sha.copy">Copiar</button>
     </div>
-    <p class="center download-meta">Para comprobar tu descarga, en Terminal: <code style="font-family:var(--font-mono);font-size:13px">shasum -a 256 ~/Downloads/Islandly.dmg</code></p>
+    <p class="center download-meta" data-i18n="sha.check">Para comprobar tu descarga, en Terminal: <code style="font-family:var(--font-mono);font-size:13px">shasum -a 256 ~/Downloads/Islandly.dmg</code></p>
   </section>
 
 </main>
 
 <footer class="band">
   <div class="column">
-    <span>© 2026 Angel Barahona. Islandly es una app independiente.</span>
-    <span>Islandly no está afiliada ni respaldada por Apple Inc. Mac, macOS, AirDrop, Spotify y demás nombres son marcas de sus dueños.</span>
+    <span data-i18n="footer.copy">© 2026 Angel Barahona. Islandly es una app independiente.</span>
+    <span data-i18n="footer.legal">Islandly no está afiliada ni respaldada por Apple Inc. Mac, macOS, AirDrop, Spotify y demás nombres son marcas de sus dueños.</span>
   </div>
 </footer>
 
@@ -665,11 +673,172 @@ footer .column { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content:
   document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
   start();
 
+  // Language: Spanish is written in the page; English comes from this dictionary. The first visit
+  // follows the browser's language; a choice made with the ES / EN switch is remembered.
+  var EN = {
+    "nav.features": "Features",
+    "nav.details": "Details",
+    "nav.privacy": "Privacy",
+    "nav.download": "Download",
+    "hero.title": "The Dynamic Island,<br>now on your Mac.",
+    "hero.lead": "Music, charging, timers, files and alerts live in an island at the top of your screen. It opens when you need it and gets out of the way when you don’t.",
+    "hero.cta": "Download free",
+    "hero.more": "See what it does",
+    "hero.note": "For macOS 14 Sonoma or later · Macs with or without a notch",
+    "menu.file": "File",
+    "menu.edit": "Edit",
+    "menu.view": "View",
+    "menu.date": "Tue Sep 29 10:41 AM",
+    "menu.pct": "87%",
+    "demo.charging": "Charging",
+    "demo.full": "full in 38 min",
+    "hero.caption": "The song, with its artwork and bars that follow the music.",
+    "features.eyebrow": "Features",
+    "features.title": "Everything happening on your Mac, at a glance.",
+    "f.music.title": "Your music, always in view.",
+    "f.music.text": "Apple Music and Spotify with <strong>artwork, title and bars that dance to the song</strong>. Play, pause or skip from the island, or with a two-finger swipe.",
+    "f.charge.title": "Charging you can see.",
+    "f.charge.text": "Plug in and a green bolt appears with <strong>a battery that fills up to your level</strong>, plus the time until full.",
+    "f.split.title": "Split island.",
+    "f.split.text": "Two things at once? The second one gets <strong>its own bubble</strong>, just like on iPhone.",
+    "f.shelf.title": "Shelf with AirDrop.",
+    "f.shelf.text": "Drop files on the island to keep them handy. <strong>Drag them out</strong> or send them with AirDrop.",
+    "f.shelf.photos": "Photos",
+    "f.shelf.design": "Design",
+    "f.shelf.notes": "Notes",
+    "f.volume.title": "Volume in the island.",
+    "f.volume.text": "Turn the volume up or down and the island shows you <strong>the exact level</strong>, instantly.",
+    "f.color.title": "Any color on your screen.",
+    "f.color.text": "The macOS magnifier picks the color and Islandly copies it as <strong>HEX, RGB or HSL</strong>. Your recent colors are saved.",
+    "f.privacy.title": "Know when you’re seen and heard.",
+    "f.privacy.text": "A <strong class=\"cam\">green camera</strong> and an <strong class=\"mic\">orange microphone</strong> appear whenever any app uses them. And a moon when you turn on <strong>Focus</strong>.",
+    "f.privacy.focus": "Focus On",
+    "f.privacy.inuse": "In Use",
+    "also.timer": "Timer and stopwatch",
+    "also.calendar": "Next calendar event",
+    "also.downloads": "Downloads with progress",
+    "also.monitor": "CPU, GPU, memory and disk monitor",
+    "also.audio": "Headphones and AirPods",
+    "also.clipboard": "Clipboard history",
+    "also.notifications": "Alerts in Notification Center",
+    "also.quiet": "Quiet Mode",
+    "also.demo": "Demo Mode",
+    "details.eyebrow": "Details",
+    "details.title": "Feels like it came with your Mac.",
+    "details.lead": "Smooth animations, keyboard shortcuts, trackpad gestures and full accessibility. And it barely uses any power.",
+    "d.keys.title": "Keyboard shortcuts",
+    "d.keys.text": "Open the island from any app. Jump between tabs with ⌘1…⌘9; Esc closes it.",
+    "d.space": "Space",
+    "d.gestures.title": "Trackpad gestures",
+    "d.gestures.text": "Swipe two fingers down to open it and up to close it; swipe sideways to change songs.",
+    "d.everyone.title": "For everyone",
+    "d.everyone.text": "Three text sizes, VoiceOver, Increase Contrast and Reduce Motion.",
+    "d.notch.title": "With or without a notch",
+    "d.notch.text": "On Macs with a notch the island wraps around it; on the others it draws its own island, in black or glass.",
+    "d.displays.title": "Multiple displays",
+    "d.displays.text": "Choose which display the island lives on; it moves by itself when displays change.",
+    "d.language.title": "In your language",
+    "d.language.text": "In English and Spanish. It follows your Mac’s language, or pick one in Settings.",
+    "stat.cpu.value": "0.03%",
+    "stat.cpu": "CPU at rest, with everything on",
+    "stat.size.value": "3.4 MB",
+    "stat.size": "download",
+    "stat.modules": "modules you switch on as you like",
+    "stat.zero": "accounts, ads or tracking",
+    "privacy.title": "What’s on your Mac stays yours.",
+    "privacy.lead": "Islandly runs inside macOS’s security sandbox and only uses Apple’s public tools. What it sees, it shows and forgets.",
+    "p1.title": "No accounts, no tracking",
+    "p1.text": "No sign-up, analytics or ads. Islandly has no servers of its own.",
+    "p2.title": "Permissions only when you ask",
+    "p2.text": "Calendar, music or Focus access is requested when you press “Allow”, never when the app opens.",
+    "p3.title": "Nothing is recorded",
+    "p3.text": "To move the bars, Islandly measures the music’s sound and discards it instantly. It never turns on the camera or microphone.",
+    "p4.title": "Your files, untouched",
+    "p4.text": "The Shelf keeps a reference to each file, never a copy, and never moves them.",
+    "download.title": "Download Islandly.",
+    "download.meta": "Version 1.9.0 · Free · 3.4 MB · macOS 14 Sonoma or later · Apple silicon and Intel",
+    "download.all": "All versions",
+    "s1.title": "Install",
+    "s1.text": "Open the downloaded file and drag Islandly to the Applications folder.",
+    "s2.title": "Allow it to open",
+    "s2.text": "The first time, macOS says it can’t verify the app. Click Done, then go to System Settings → Privacy &amp; Security → <strong>Open Anyway</strong>. You only do this once.",
+    "s3.title": "Enjoy",
+    "s3.text": "The island appears at the top centre of your screen. Hover over it or press ⌥ Space to open it.",
+    "sha.label": "Installer SHA-256 fingerprint",
+    "sha.copy": "Copy",
+    "sha.check": "To check your download, in Terminal: <code style=\"font-family:var(--font-mono);font-size:13px\">shasum -a 256 ~/Downloads/Islandly.dmg</code>",
+    "footer.copy": "© 2026 Angel Barahona. Islandly is an independent app.",
+    "footer.legal": "Islandly is not affiliated with or endorsed by Apple Inc. Mac, macOS, AirDrop, Spotify and other names are trademarks of their respective owners."
+  };
+  var PAGE = {
+    es: {
+      title: 'Islandly para Mac',
+      description: document.querySelector('meta[name="description"]').getAttribute('content'),
+      stage: stage.getAttribute('aria-label'),
+      icon: 'Icono de Islandly',
+      copied: 'Copiado',
+      dots: { music: 'Música', player: 'Reproductor', charging: 'Carga', split: 'Isla dividida' },
+      captions: captions
+    },
+    en: {
+      title: 'Islandly for Mac',
+      description: 'Islandly brings a Dynamic Island to your Mac: music with artwork, a charging animation, split island, a file shelf with AirDrop and more. Free, private and light.',
+      stage: 'A Mac screen with the Islandly island showing a song, the open player, the charging animation and the split island',
+      icon: 'Islandly icon',
+      copied: 'Copied',
+      dots: { music: 'Music', player: 'Player', charging: 'Charging', split: 'Split island' },
+      captions: {
+        music: 'The song, with its artwork and bars that follow the music.',
+        player: 'Hover over it and the island opens with every control.',
+        charging: 'Plug in and the battery fills up to your level.',
+        split: 'Two things at once: the second one gets its own bubble.'
+      }
+    }
+  };
+  var translatable = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+  var spanish = translatable.map(function (node) { return node.innerHTML; });
+  var language = 'es';
+
+  function setLanguage(next) {
+    language = next === 'en' ? 'en' : 'es';
+    translatable.forEach(function (node, i) {
+      var key = node.getAttribute('data-i18n');
+      node.innerHTML = language === 'en' && EN[key] ? EN[key] : spanish[i];
+    });
+    var page = PAGE[language];
+    document.documentElement.lang = language;
+    document.title = page.title;
+    document.querySelector('meta[name="description"]').setAttribute('content', page.description);
+    stage.setAttribute('aria-label', page.stage);
+    document.querySelector('.hero .appicon').setAttribute('alt', page.icon);
+    dots.forEach(function (dot) { dot.setAttribute('aria-label', page.dots[dot.getAttribute('data-go')]); });
+    captions = page.captions;
+    caption.textContent = captions[states[index]];
+    Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function (button) {
+      button.setAttribute('aria-pressed', String(button.getAttribute('data-lang') === language));
+    });
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem('islandly-language'); } catch (e) {}
+  var browser = (navigator.language || 'es').toLowerCase().indexOf('es') === 0 ? 'es' : 'en';
+  setLanguage(saved || browser);
+  Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function (button) {
+    button.addEventListener('click', function () {
+      setLanguage(button.getAttribute('data-lang'));
+      try { localStorage.setItem('islandly-language', language); } catch (e) {}
+    });
+  });
+
+
   var copy = document.getElementById('copy-sha');
   var sha = document.getElementById('sha');
   copy.addEventListener('click', function () {
     var text = sha.textContent.trim();
-    function done() { copy.textContent = 'Copiado'; setTimeout(function () { copy.textContent = 'Copiar'; }, 1600); }
+    function done() {
+      copy.textContent = PAGE[language].copied;
+      setTimeout(function () { copy.textContent = language === 'en' ? EN['sha.copy'] : 'Copiar'; }, 1600);
+    }
     function fallback() {
       var range = document.createRange();
       range.selectNodeContents(sha);
